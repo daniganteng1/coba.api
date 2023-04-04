@@ -20,7 +20,7 @@ export default function Home() {
       <div className="container ">
         <div className="row text-center">
           <div className="col mt-5">
-            <h1>Cuaca di Indonesia</h1>
+            <h1>Search Location</h1>
           </div>
         </div>
 
@@ -46,25 +46,36 @@ export default function Home() {
         </div>
         <div className="row justify-content-center" id="Cuaca">
           {data && (
-            <div className="col-md-7 my-3">
+            <div className="col-md-5 my-3">
+              <div className="row justify-content-center mb-5 bg-transparent">
+                <div className="col-md-5">
+                  {" "}
+                  <Image
+                    src={`https:${data.current.condition.icon}`}
+                    width={100}
+                    height={100}
+                    alt=""
+                  />
+                </div>
+                <div className="col-md-5 mt-2">
+                  <h2 className="card-title mb-2">{data.location.name}</h2>
+                  <h3>{data.current.temp_c} ℃</h3>
+                </div>
+              </div>
               <div className="card">
-                <Image
-                  src={`https:${data.current.condition.icon}`}
-                  width={100}
-                  height={100}
-                  alt=""
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{data.location.name}</h5>
-                  <h6>{data.current.temp_c} ℃</h6>
+                <div className="card-body mt-5">
                   <div className="row justify-content-center">
-                    <div className="col-md-6">
+                    <div className="col-md-4">
                       <h6>Cakupan awan:</h6>
                       {data.current.cloud}%
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-4">
                       <h6>Titik Embun:</h6>
                       {data.current.humidity} ℃
+                    </div>
+                    <div className="col-md-4">
+                      <h6>kecepatan angin:</h6>
+                      {data.current.wind_mph} mph
                     </div>
                   </div>
                 </div>
