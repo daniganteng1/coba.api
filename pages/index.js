@@ -7,7 +7,7 @@ export default function Home() {
 
   async function Cuaca() {
     const res = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=c540e85fe248426fa6e20242233103&q=${isi}&aqi=no`
+      `https://api.weatherapi.com/v1/current.json?key=c540e85fe248426fa6e20242233103&q=${isi}&aqi=no`
     );
     const data = await res.json();
     setData(data);
